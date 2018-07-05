@@ -9,12 +9,12 @@ def test_get_django_settings_from_env__empty() -> None:
 
 
 def test_get_django_settings_from_env__debug() -> None:
-    with mock.patch.dict(os.environ, {'DJANGO_DEBUG': 'True'}):
+    with mock.patch.dict(os.environ, {'DJANGO_DEBUG': 'True'}):  # type: ignore
         assert {'DEBUG': True} == get_django_settings_from_env()
 
 
 def test_get_django_settings_from_env__tuples() -> None:
-    with mock.patch.dict(os.environ, {
+    with mock.patch.dict(os.environ, {  # type: ignore
         'DJANGO_SECURE_PROXY_SSL_HEADER': '(HTTP_X_FORWARDED_PROTO,https)',
     }):
         assert {
